@@ -202,7 +202,7 @@ module.exports = function(grunt) {
         options: {
           file: 'server.js',
           ignoredFiles: ['/.tmp/*', '/assets/*', '/test/*', '/public/*'],
-          watchedExtensions: ['js', 'coffee'],
+          watchedExtensions: ['js'],
           debug: true,
           cwd: __dirname,
           env: {

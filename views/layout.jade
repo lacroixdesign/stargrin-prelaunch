@@ -25,10 +25,10 @@ html(lang="en")
 
   head
     meta(charset="utf-8")
-    title= pageTitle(title, "TODO: ADD SITE TITLE")
+    title= pageTitle(title, "Stargrin")
 
     //- koko wa general meta
-    meta(name="description", content="TODO: ADD DESCRIPTION")
+    meta(name="description", content="Stargrin")
     meta(name="author", content="Michael LaCroix, James LaCroix")
     meta(http-equiv="X-UA-Compatible", content="chrome=1")
 
@@ -44,19 +44,13 @@ html(lang="en")
     meta(name="apple-mobile-web-app-capable", content="yes")
     meta(name="apple-mobile-web-app-status-bar-style", content="black")
 
-    //- link(href='/stylesheets/application.css', rel='stylesheet')
     != assets.tag('/stylesheets/application.css')
-    //- script(src='/javascripts/application.js', type='text/javascript')
     != assets.tag('/javascripts/application.js')
 
-    //- koko wa CSS3 polyfill, IE6-8 support of CSS3 pseudo-classes with Selectivizr
-    //[if lt IE 9]
-      script(src='/javascripts/polyfills.js', type='text/javascript')
-
     //- koko wa Typekit -- replace VVVVVVV with the proper kit code
-    // script type="text/javascript" src="//use.typekit.net/VVVVVVV.js"
-    // script.
-    //   try{Typekit.load();}catch(e){}
+    script type="text/javascript" src="//use.typekit.net/VVVVVVV.js"
+    script.
+      try{Typekit.load();}catch(e){}
 
     //- koko wa Google Analytics
     script.
@@ -86,14 +80,6 @@ html(lang="en")
 
   body
     block content
-
-    if isDevelopment()
-      p: small Development Environment
-    if isProduction()
-      p: small Production Environment
-    p: small NODE_ENV: #{process.env.NODE_ENV}
-    img(src=assets.url('/images/lacroix-logo.png'))
-
 
     //- koko wa Width Plugin
     if isDevelopment()
