@@ -1,0 +1,18 @@
+.s-intro {
+  padding: 2em 0;
+  background: $black image-url("lights.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-top: 0.125em solid $yellow;
+  border-bottom: 0.5em solid $yellow;
+  color: $white;
+  text-align: center;
+
+} // .s-intro
+
+.intro-logo img {
+  width: 50%;
+  @include media-ie($breakpoint-ipad) {
+    width: 50%;
+  }
+}

@@ -12,7 +12,14 @@ p, a, h1, h2, h3, h4, h5, label {
   font-family: inherit;
 }
 
-h1 {}
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: -0.03125em;
+  line-height: 1em;
+  padding: 0.5em 0;
+  color: $black;
+}
 
 h2 {}
 
