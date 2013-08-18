@@ -32,11 +32,10 @@ module.exports = function(grunt) {
     // Sass
     //
     sass: {
-      options: {
-        style: 'compressed',
-        require: './<%= meta.sourcePath + meta.cssPath %>sass.rb'
-      },
       dist: {
+        options: {
+          outputStyle: 'compressed'
+        },
         files: {
           '<%= meta.buildPath + meta.cssPath %>application.css': '<%= meta.sourcePath + meta.cssPath %>application.scss'
         }
@@ -323,7 +322,7 @@ module.exports = function(grunt) {
 
     concurrent: {
       development: {
-        tasks: ['assets', 'server'],
+        tasks: ['watch', 'server'],
         options: {
           logConcurrentOutput: true
         }
@@ -337,7 +336,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-snockets');
   grunt.loadNpmTasks('grunt-neuter');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -372,9 +371,10 @@ module.exports = function(grunt) {
   grunt.registerTask('assets',  ['stylesheets', 'javascripts', 'static_assets', 'jshint:node', 'notify:assets', 'watch']);
   grunt.registerTask('server',  ['jshint:node', 'nodemon:dev', 'notify:nodemon']);
   grunt.registerTask('test',    ['mocha', 'notify:test']);
-  grunt.registerTask('build',   ['stylesheets', 'javascripts', 'static_assets', 'jshint:node', 'notify:generic_tasks']);
+  grunt.registerTask('build',   ['stylesheets', 'javascripts', 'static_assets', 'jshint:node']);
+  grunt.registerTask('dev',     ['build', 'concurrent:development']);
 
   // Default task
-  grunt.registerTask('default', ['concurrent:development']);
+  grunt.registerTask('default', ['dev']);
 
 };
