@@ -1,0 +1,14 @@
+.s-contact {
+  h3 {
+    text-align: center;
+    font-style: italic;
+  }
+
+  a:hover {
+    color: $yellow;
+  }
+
+  a:active {
+    color: darken($yellow, 5%)
+  }
+}

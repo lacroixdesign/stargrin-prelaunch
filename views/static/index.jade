@@ -6,5 +6,33 @@ block content
       .intro-logo
         img(src=assets.url('/images/logo.png'))
       .intro-callout
-        h1 Celebrities Are Closer Than You Think
-        p Stargrin is a way for people to have celebrities, viral video stars, twitter personalities and any other person someone deems a “star” grant their wishes. Sign up now for exclusive information and to be the first to know when we launch.
+        h1 A Unique Celebrity Experience
+        p Stargrin is a way for people to have celebrities, viral video stars, twitter personalities and any other person someone deems a “star” grant their wishes.Sign up now for exclusive information and to be the first to know when we launch.
+
+      form.m-form.intro-signup
+        input(type="email", name="email", placeholder="Email address")
+        button.btn(type="submit") Send
+        .form-error Invalid email address. Please double-check your entry and try again.
+        .form-success Almost done! Check your inbox for instructions on confirming your email address.
+        .form-suggestion
+          | Did you mean&nbsp;
+          a(href="#")
+            span steve
+            | @
+            strong gmail.com
+            | ?
+
+      ul.intro-social
+        li: a(href="https://twitter.com/", target="_blank"): +icon("000")
+        li: a(href="https://www.facebook.com/", target="_blank"): +icon("001")
+
+  section#details.s-details
+    .l-constrained
+      h2 How It Works
+      p.details-column Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      p.details-column Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      p.details-column.ie-omega Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+
+  section#contact.s-contact
+    .l-constrained
+      h3 <a href="mailto:info@stargrin.com">Have a question? Email us at info@stargrin.com</a>

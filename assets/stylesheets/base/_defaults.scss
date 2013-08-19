@@ -1,5 +1,6 @@
 // Basic Elements
 body {
+  @include ie-width;
   font-family: $typeface-sans;
   text-shadow: 1px 1px 1px transparent;
 }
@@ -14,14 +15,21 @@ p, a, h1, h2, h3, h4, h5, label {
 
 h1 {
   font-size: 2em;
+  text-transform: uppercase;
   font-weight: 700;
   letter-spacing: -0.03125em;
   line-height: 1em;
-  padding: 0.5em 0;
-  color: $black;
+  padding: 0.5em 0 ;
+
 }
 
-h2 {}
+h2 {
+  padding: 1em 0 0.5em 0;
+  font-size: 1.5em;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: $light-grey;
+}
 
 h3 {}
 
@@ -29,7 +37,9 @@ h4 {}
 
 h5 {}
 
-h6 {}
+h6 {
+  font-size: 1.25em;
+}
 
 p {}
 

@@ -1,0 +1,19 @@
+.m-form {
+
+  .form-error {
+    display: none;
+    color: $red;
+  }
+
+  .form-success {
+    display: none;
+    color: $green;
+  }
+
+  .form-suggestion {
+    display: none;
+    color: $yellow;
+    font-style: italic;
+  }
+
+} // .m-form

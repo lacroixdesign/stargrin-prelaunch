@@ -1,0 +1,12 @@
+textarea,
+input[type="tel"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  // args: bg-color, text-color
+  @include input($white);
+}
+
+textarea {
+  height: 5em;
+}

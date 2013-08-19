@@ -1,18 +1,69 @@
 .s-intro {
   padding: 2em 0;
-  background: $black image-url("lights.jpg") no-repeat center center;
+  background: $black image-url("flash.jpg") no-repeat center center;
   -webkit-background-size: cover;
   background-size: cover;
   border-top: 0.125em solid $yellow;
   border-bottom: 0.5em solid $yellow;
-  color: $white;
+  color: $black;
   text-align: center;
 
-} // .s-intro
-
-.intro-logo img {
-  width: 50%;
-  @include media-ie($breakpoint-ipad) {
-    width: 50%;
+  .intro-logo img {
+    width: 75%;
+    @include media-ie($breakpoint-ipad) {
+      width: 50%;
+    }
   }
-}
+
+  .intro-callout {
+    max-width: 32em;
+    margin: 0 auto;
+
+    h1 {
+      display: none;
+      @include media-ie($breakpoint-ipad) {
+        display: block;
+      }
+    }
+  }
+
+  .intro-signup {
+
+    input[type="email"] {
+      display: inline-block;
+      max-width: 20em;
+      margin-right: 0.75em;
+      margin-bottom: 0.5em;
+      font-size: 1.25em;
+    }
+
+    [class*="btn"] {
+      margin-bottom: 0.5em;
+      font-size: 1.25em;
+    }
+
+  } // .intro-signup
+
+  .intro-social {
+    @include unstyled-list;
+    margin: 0 auto;
+    font-size: 2.5em;
+    color: $yellow;
+
+    li {
+      display: inline-block;
+      margin: 0 0.25em;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+    }
+
+    a:hover {
+      color: lighten($yellow, 5%);
+    }
+
+    a:active {
+      color: darken($yellow, 5%);
+    }
+
+  } // .intro-social
+
+} // .s-intro

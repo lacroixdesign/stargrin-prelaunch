@@ -1,0 +1,24 @@
+.s-details {
+  display: none;
+
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    color: $grey;
+  }
+
+  @include media-ie($breakpoint-ipad) {
+    display: block;
+  }
+
+  @include media-ie($breakpoint-desktop) {
+
+    .details-column {
+      @include span-columns(4);
+    }
+
+  } // @include media-ie($breakpoint-desktop)
+
+} // .s-details
