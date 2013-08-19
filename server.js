@@ -5,10 +5,7 @@
 
 var express  = require('express')
   , http     = require('http')
-  , path     = require('path')
-  , util     = require('util')
-  , moment   = require('moment')
-  , rack     = require('asset-rack');
+  , path     = require('path');
 
 var app = module.exports = express();
 
@@ -36,12 +33,12 @@ app.use(function(req, res, next){
   next();
 });
 
+// config
+require('./config/env')(app, express);
+
 // include any custom middleware before this app.router
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
-// config
-require('./config/env')(app, express);
 
 // services
 // app.set('Service', require('./lib/services/service'));
