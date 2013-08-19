@@ -1,31 +1,26 @@
 .s-intro {
   padding: 2em 0;
-  background: $black image-url("flash.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  background-size: cover;
   border-top: 0.125em solid $yellow;
   border-bottom: 0.5em solid $yellow;
+  background: $light-grey image-url("flash.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
   color: $black;
   text-align: center;
 
   .intro-logo img {
     width: 75%;
-    @include media-ie($breakpoint-ipad) {
-      width: 50%;
-    }
   }
 
   .intro-callout {
     max-width: 32em;
-    margin: 0 auto;
+    margin: 1em auto;
 
     h1 {
       display: none;
-      @include media-ie($breakpoint-ipad) {
-        display: block;
-      }
     }
-  }
+
+  } // .intro-callout
 
   .intro-signup {
 
@@ -65,5 +60,17 @@
     }
 
   } // .intro-social
+
+  @include media-ie($breakpoint-ipad) {
+
+    .intro-logo img {
+      width: 50%;
+    }
+
+    .intro-callout h1 {
+      display: block;
+    }
+
+  } // @include media-ie($breakpoint-ipad)
 
 } // .s-intro

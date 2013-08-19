@@ -1,18 +1,30 @@
 .s-contact {
+  margin: 1em auto;
+
   h3 {
-    text-align: center;
+    font-size: 1em;
     font-style: italic;
+    text-align: center;
   }
 
   a {
     color: $dark-grey;
   }
-  
+
   a:hover {
     color: $yellow;
   }
 
   a:active {
-    color: darken($yellow, 5%)
+    color: darken($yellow, 5%);
   }
-}
+
+  @include media-ie($breakpoint-ipad) {
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+  } // @include media-ie($breakpoint-ipad)
+
+} // .s-contact
