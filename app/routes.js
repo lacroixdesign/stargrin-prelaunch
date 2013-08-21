@@ -1,5 +1,6 @@
 module.exports = function(app) {
-  app.get('/', require('../lib/controllers/static').index);
+  app.get('/', app.auth, require('../lib/controllers/static').index);
+  app.get('/ping', require('../lib/controllers/static').ping);
   // app.get('/model', require('../lib/controllers/model').index);
   // app.get('/model/new', require('../lib/controllers/model').new);
   // app.post('/model/new', require('../lib/controllers/model').create);

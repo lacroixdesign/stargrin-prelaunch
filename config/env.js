@@ -17,7 +17,7 @@ module.exports = function(app, express) {
   // if ('production' === app.get('env')) {}
 
   if (process.env.USERNAME && process.env.PASSWORD) {
-    app.use(express.basicAuth(process.env.USERNAME, process.env.PASSWORD));
+    app.auth = express.basicAuth(process.env.USERNAME, process.env.PASSWORD);
   }
 
 };
