@@ -1,8 +1,9 @@
+// new relic
+if(process.env.NEW_RELIC_LICENSE_KEY) {
+  require('newrelic');
+}
 
-/**
- * Module dependencies.
- */
-
+// modules
 var express  = require('express')
   , http     = require('http')
   , path     = require('path');
@@ -21,8 +22,6 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-// app.use(express.cookieParser('_stargrin_prelaunch_b2685bd0cb02e1049a903e3359c3903e3bbe'));
-// app.use(express.session());
 app.use(express.cookieParser());
 app.use(express.cookieSession({ secret: '_stargrin_prelaunch_b2685bd0cb02e1049a903e3359c3903e3bbe' }));
 app.use(express.csrf());

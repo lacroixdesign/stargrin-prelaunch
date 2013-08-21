@@ -15,7 +15,8 @@
     "moment": "~2.x",
     "underscore": "~1.x",
     "asset-rack": "~2.x",
-    "dotenv": "*"
+    "dotenv": "*",
+    "newrelic": "~0.10.1"
   },
   "devDependencies": {
     "coffee-script": "*",
