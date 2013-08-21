@@ -48,7 +48,7 @@ app.locals.errors  = {};
 app.locals.message = {};
 
 // routes
-require('./app/routes')(app);
+require('./config/routes')(app);
 
 // start server
 if (!module.parent) {
