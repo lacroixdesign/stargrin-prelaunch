@@ -2,6 +2,8 @@ extends ../layout
 
 block content
   section#intro.s-intro(data-resize="1100")
+    //if lte IE 8
+      .ie-bg: img(src=assets.url('/images/flash.jpg'))
     .l-constrained
       .intro-logo
         img(src=assets.url('/images/logo.png'))
@@ -13,7 +15,7 @@ block content
         h3 Sign up now for exclusive information and be the first to know when we launch.
 
         form.m-form.intro-signup
-          input(type="email", name="email", placeholder="Email address")
+          input.intro-signup-input(type="email", name="email", placeholder="Email address")
           button.btn(type="submit") Send
           .form-error Invalid email address. Please double-check your entry and try again.
           .form-success Almost done! Check your inbox for instructions on confirming your email address.

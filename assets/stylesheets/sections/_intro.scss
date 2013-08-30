@@ -1,16 +1,44 @@
 .s-intro {
+  position: relative;
   padding: 2em 0;
+  border-top: 0.125em solid $yellow;
+  border-bottom: 0.5em solid $yellow;
   background: $black image-url("flash.jpg") no-repeat center center;
   -webkit-background-size: cover;
   background-size: cover;
-  border-top: 0.125em solid $yellow;
-  border-bottom: 0.5em solid $yellow;
   color: $white;
   text-align: center;
 
-  .intro-logo img {
-    width: 75%;
+  @include media-ie {
+    overflow-y: hidden;
+    background: $black;
+    > * { position: relative; }
   }
+
+  .ie-bg {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    img {
+      width: 150%;
+      margin-left: -25%;
+    }
+
+  } // .ie-bg
+
+  .intro-logo{
+    width: 75%;
+    max-width: 25em;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+
+  } // .intro-logo
 
   .intro-callout {
     max-width: 50em;
@@ -34,7 +62,7 @@
 
   .intro-signup {
 
-    input[type="email"] {
+    .intro-signup-input {
       display: inline-block;
       max-width: 15em;
       margin-right: 0.75em;
@@ -50,10 +78,6 @@
   } // .intro-signup
 
   @include media-ie($breakpoint-ipad) {
-
-    .intro-logo img {
-      width: 37.5%;
-    }
 
     .intro-callout {
       padding: 1em 2em;
