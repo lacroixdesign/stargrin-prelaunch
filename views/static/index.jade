@@ -5,34 +5,37 @@ block content
     .l-constrained
       .intro-logo
         img(src=assets.url('/images/logo.png'))
+
       .intro-callout
-        h1 A Unique Celebrity Experience
-        p Stargrin is a way for people to have celebrities, viral video stars, twitter personalities and any other person someone deems a “star” grant their wishes.Sign up now for exclusive information and to be the first to know when we launch.
+        h1 Stargrin is the new way for fans to easily connect with their favorite “starlebrities” for unforgettable experiences.
+        p Have you ever wished you could Skype with your favorite Youtube star?  What about getting that hilarious Twitter personality to tweet directly to your boyfriend?  How incredible would it be to have your favorite local band write a birthday song for you?  What other experiences would you like to have with those “celebrities” you find yourself enjoying and adoring?
 
-      form.m-form.intro-signup
-        input(type="email", name="email", placeholder="Email address")
-        button.btn(type="submit") Sign Up
-        .form-error Invalid email address. Please double-check your entry and try again.
-        .form-success Almost done! Check your inbox for instructions on confirming your email address.
-        .form-suggestion
-          | Did you mean&nbsp;
-          a(href="#")
-            span steve
-            | @
-            strong gmail.com
-            | ?
+        h3 Sign up now for exclusive information and be the first to know when we launch.
 
-      ul.intro-social
-        li: a(href="https://twitter.com/", target="_blank"): +icon("000")
-        li: a(href="https://www.facebook.com/", target="_blank"): +icon("001")
+        form.m-form.intro-signup
+          input(type="email", name="email", placeholder="Email address")
+          button.btn(type="submit") Send
+          .form-error Invalid email address. Please double-check your entry and try again.
+          .form-success Almost done! Check your inbox for instructions on confirming your email address.
+          .form-suggestion
+            | Did you mean&nbsp;
+            a(href="#")
+              span steve
+              | @
+              strong gmail.com
+              | ?
 
   section#details.s-details
     .l-constrained
-      h2 How It Works
-      p.details-column Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-      p.details-column Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-      p.details-column.ie-omega Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-
-  section#contact.s-contact
-    .l-constrained
-      h3 <a href="mailto:info@stargrin.com">Have a question? Email us at info@stargrin.com</a>
+      article.details-column
+        h1 For Fans
+        p Stargrin is a safe, secure marketplace that allows fans to pay for experiences that would be extremely difficult, expensive and in some cases impossible to attain otherwise.  We maintain the quality of the celebrity responses through internal checks and a feedback based user community.
+      article.details-column
+        h1 For Starlebrities
+        p Stargrin allows you to offer your fans unique experiences.  It is a new way to listen to what your fans want and connect with them on a personal level… and making you a few extra bucks doesn’t hurt either!  We take care of the details, you just deliver what your fans want.
+      article.details-column.ie-omega
+        h1 Connect
+        ul.details-social
+          li: a(href="https://twitter.com/", target="_blank"): +icon("000")
+          li: a(href="https://www.facebook.com/", target="_blank"): +icon("001")
+          li: a(href="mailto:info@stargrin.com"): +icon("002")

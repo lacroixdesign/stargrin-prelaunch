@@ -18,6 +18,8 @@ module.exports = function(app, express) {
 
   if (process.env.USERNAME && process.env.PASSWORD) {
     app.auth = express.basicAuth(process.env.USERNAME, process.env.PASSWORD);
+  } else {
+    app.auth = function(req, res, next) { next(); };
   }
 
 };

@@ -1,7 +1,6 @@
 // Basic Elements
 body {
   @include ie-width;
-  padding-bottom: 3em;
   font-family: $typeface-sans;
   text-shadow: 1px 1px 1px transparent;
 }
@@ -15,26 +14,23 @@ p, a, h1, h2, h3, h4, h5, label {
 }
 
 h1 {
-  margin: 0.5em auto;
-  font-size: 2em;
-  line-height: 1em;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.03125em;
-
-}
-
-h2 {
-  margin: 1em auto 0.5em;
-  color: $light-grey;
+  padding: 1em 0 0.5em 0;
   font-size: 1.5em;
-  line-height: 1em;
-  text-transform: uppercase;
+  line-height: 1;
+  color: $light-grey;
+
 }
 
-h3 {}
+h2 {}
 
-h4 {}
+h3 {
+  font-size: 0.75em;
+}
+
+h4 {
+  font-size: 1.25em;
+  line-height: 1.25em;
+}
 
 h5 {}
 
@@ -42,8 +38,6 @@ h6 {
   font-size: 1.25em;
 }
 
-p {
-  font-size: 1.125em;
-}
+p {}
 
 hr {}

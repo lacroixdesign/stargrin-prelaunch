@@ -1,16 +1,46 @@
 .s-details {
-  display: none;
 
-  h2 {
+  h1 {
     text-align: center;
+    text-transform: uppercase;
   }
 
   p {
-    color: $grey;
+    color: $dark-grey;
   }
 
+  .details-social {
+    @include unstyled-list;
+    margin: 0 auto;
+    color: $dark-grey;
+    font-size: 2.5em;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 0 0.25em;
+    }
+
+    a:hover {
+      color: $yellow;
+    }
+
+    a:active {
+      color: darken($yellow, 5%);
+    }
+
+  } // .details-social
+
   @include media-ie($breakpoint-ipad) {
-    display: block;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.25em;
+    }
+
   }
 
   @include media-ie($breakpoint-desktop) {
