@@ -14,8 +14,8 @@ block content
 
         h3 Sign up now for exclusive information and be the first to know when we launch.
 
-        form.m-form.intro-signup
-          input.intro-signup-input(type="email", name="email", placeholder="Email address")
+        form.m-form.intro-signup(ng-controller="SignupCtrl")
+          input.intro-signup-input(type="email", name="email", placeholder="Email address", ng-model="email")
           button.btn(type="submit") Send
           .form-error Invalid email address. Please double-check your entry and try again.
           .form-success Almost done! Check your inbox for instructions on confirming your email address.

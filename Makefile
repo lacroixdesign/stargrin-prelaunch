@@ -19,4 +19,4 @@ accept:
 console:
 	./node_modules/.bin/node-inspector --web-port=12321
 
-.PHONY: test console
+.PHONY: test unit accept console

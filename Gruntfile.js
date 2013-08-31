@@ -56,7 +56,16 @@ module.exports = function(grunt) {
             'app/*.js',
             'app/**/*.js',
             'lib/*.js',
-            'lib/**/*.js',
+            'lib/**/*.js'
+          ]
+        }
+      },
+      test: {
+        options: {
+          jshintrc: "test/.jshintrc"
+        },
+        files: {
+          src: [
             'test/*.js',
             'test/**/*.js'
           ]
@@ -369,7 +378,7 @@ module.exports = function(grunt) {
   // Common tasks
   grunt.registerTask('compile', ['stylesheets', 'javascripts', 'static_assets', 'notify:compile']);
   grunt.registerTask('assets',  ['stylesheets', 'javascripts', 'static_assets', 'jshint:node', 'notify:assets', 'watch']);
-  grunt.registerTask('server',  ['jshint:node', 'nodemon:dev', 'notify:nodemon']);
+  grunt.registerTask('server',  ['jshint:node', 'jshint:test', 'nodemon:dev', 'notify:nodemon']);
   grunt.registerTask('test',    ['mocha', 'notify:test']);
   grunt.registerTask('build',   ['stylesheets', 'javascripts', 'static_assets', 'jshint:node']);
   grunt.registerTask('dev',     ['build', 'concurrent:development']);

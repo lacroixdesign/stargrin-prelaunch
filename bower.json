@@ -1,8 +1,9 @@
 {
-  "name": "express-blueprint",
-  "version": "0.0.2",
+  "name": "stargrin-prelaunch",
+  "version": "1.0.0",
   "dependencies": {
     "jquery": "~1.10",
-    "es5-shim": "*"
+    "es5-shim": "*",
+    "mailcheck": "Kicksend/mailcheck"
   }
 }
