@@ -86,7 +86,18 @@ describe('Signup Form', function() {
       browser.fill($inputElement, 'test@lacroixdesign.net');
       browser.pressButton($buttonElement, function() {
         expect( querySuccess(), 'success msg should exist when complete' ).to.exist;
-        expect( browser.text($errorElement) ).to.include('Almost done!');
+        expect( browser.text($successElement) ).to.include('Almost done!');
+        done();
+      });
+    });
+
+    it('should provide an error message when already subscribed', function(done) {
+      function queryError() { return browser.query($errorElement); }
+      expect( queryError(), 'already exists error msg should NOT exist before complete' ).to.not.exist;
+      browser.fill($inputElement, 'michael@lacroixdesign.net');
+      browser.pressButton($buttonElement, function() {
+        expect( queryError(), 'already exists error msg should exist when complete' ).to.exist;
+        expect( browser.text($errorElement) ).to.include('already');
         done();
       });
     });

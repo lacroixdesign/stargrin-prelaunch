@@ -18,15 +18,16 @@ block content
 
         h3 Sign up now for exclusive information and be the first to know when we launch.
 
-        form#signup-form.m-form.intro-signup(ng:controller="SignupCtrl", ng:submit="submit($event)", name="form", novalidate)
-          div(ng:show="!complete")
-            input.intro-signup-input(type="email", name="email", ng:model="user.email", required, placeholder="Email address")
-            button.btn(type="submit", ng:disabled="processing") Send
-          #signup-form-error.form-error(ng:if="form.email.$error && attempted")
+        form#signup-form.m-form.intro-signup(ng:controller="SignupCtrl", ng:submit="submit($event, '/signup', '#{process.env.MAILCHIMP_LIST || ''}')", name="form", novalidate)
+          div(ng:hide="complete")
+            input.intro-signup-input(type="email", name="email", ng:model="user.email", ng:keydown="clearErrors()", ng:change="clearErrors()", required, placeholder="Email address")
+            button.btn(type="submit", ng:disabled="processing") Submit
+          #signup-form-error.form-error(ng:if="(form.email.$error || responseError) && attempted")
             div(ng:if="form.email.$error.email") Invalid email address. Please double-check your entry and try again.
             div(ng:if="form.email.$error.required") Email address is required.
+            div(ng:if="responseError") {{ responseError }}
           #signup-form-success.form-success(ng:if="complete") Almost done! Check your inbox for instructions on confirming your email address.
-          #signup-form-suggestion.form-suggestion(shibuya:mailcheck="user.email", ng:if="user.email")
+          #signup-form-suggestion.form-suggestion(shibuya:mailcheck="user.email")
 
   section#details.s-details
     .l-constrained

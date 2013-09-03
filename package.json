@@ -16,7 +16,8 @@
     "underscore": "~1.x",
     "asset-rack": "~2.x",
     "dotenv": "*",
-    "newrelic": "~0.10.1"
+    "newrelic": "~0.10.1",
+    "mailchimp-api": "~2.0.3"
   },
   "devDependencies": {
     "coffee-script": "*",
@@ -36,8 +37,9 @@
     "grunt-neuter": "~0.5.x",
     "grunt-contrib-concat": "~0.3.x",
     "chai": "~1.x",
-    "zombie": "~2.x",
-    "grunt-concurrent": "~0.3.0"
+    "grunt-concurrent": "~0.3.0",
+    "supertest": "~0.7.1",
+    "zombie": "~2.0.0-alpha21"
   },
   "engines": {
     "node": "~0.10.x",

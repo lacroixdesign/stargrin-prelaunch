@@ -13,6 +13,14 @@ unit:
 		--growl \
 		test/unit/
 
+request:
+	NODE_ENV=test ./node_modules/.bin/mocha \
+		--reporter spec \
+		--timeout 7000 \
+		--recursive \
+		--growl \
+		test/request/
+
 accept:
 	NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter spec \
