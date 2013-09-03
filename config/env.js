@@ -5,6 +5,7 @@ module.exports = function(app, express) {
   // development
   if ('development' === app.get('env')) {
     dotenv.load();
+    app.use(express.logger('dev'));
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   }
 
@@ -14,7 +15,9 @@ module.exports = function(app, express) {
   }
 
   // production
-  // if ('production' === app.get('env')) {}
+  if ('production' === app.get('env')) {
+    app.use(express.logger('dev'));
+  }
 
   if (process.env.USERNAME && process.env.PASSWORD) {
     app.auth = express.basicAuth(process.env.USERNAME, process.env.PASSWORD);

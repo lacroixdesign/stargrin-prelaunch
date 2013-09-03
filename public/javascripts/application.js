@@ -210,6 +210,58 @@ c,{address:a.address,domain:b,full:a.address+"@"+b};return!1},findClosestDomain:
 else for(var f=e=d=0;5>f;f++){if(c+f<a.length&&a.charAt(c+f)==b.charAt(c)){d=f;break}if(c+f<b.length&&a.charAt(c)==b.charAt(c+f)){e=f;break}}c++}return(a.length+b.length)/2-g},splitEmail:function(a){a=a.split("@");if(2>a.length)return!1;for(var b=0;b<a.length;b++)if(""===a[b])return!1;var c=a.pop(),d=c.split("."),e="";if(0==d.length)return!1;if(1==d.length)e=d[0];else{for(b=1;b<d.length;b++)e+=d[b]+".";2<=d.length&&(e=e.substring(0,e.length-1))}return{topLevelDomain:e,domain:c,address:a.join("@")}}}};
 window.jQuery&&function(a){a.fn.mailcheck=function(a){var c=this;if(a.suggested){var d=a.suggested;a.suggested=function(a){d(c,a)}}if(a.empty){var e=a.empty;a.empty=function(){e.call(null,c)}}a.email=this.val();Kicksend.mailcheck.run(a)}}(jQuery);
 
+
+/*
+ * dropdownToggle - Provides dropdown menu functionality in place of bootstrap js
+ * @restrict class or attribute
+ * @example:
+   <div class="m-btn-dropdown">
+     <a dropdown-toggle>Dropdown Menu</a>
+     <ul class="dropdown-menu">
+       <li ng-repeat="choice in dropChoices">
+         <a ng-href="{{choice.href}}">{{choice.text}}</a>
+       </li>
+     </ul>
+   </div>
+ */
+
+angular.module('shibuya.form.kicksend', []).directive('shibuyaFormKicksend', [function () {
+  return {
+    restrict: 'A',
+    link: function(scope, element) {
+
+      // function checkEmail() {
+      //   Kicksend.mailcheck.run({
+      //     email: scope.form.email,
+      //     suggested: function(suggestion) {
+      //       scope.emailSuggestion = suggestion.full;
+      //     },
+      //     empty: function() {
+      //       scope.emailSuggestion = null;
+      //     }
+      //   });
+      // }
+
+      scope.$watch('email', function(newVal) {
+        console.log('CHANGE:');
+        console.warn(newVal);
+      });
+
+      element.bind('click', function (event) {
+        event.preventDefault();
+        // console.log(scope.email);
+        console.log(scope);
+        // console.log(attrs);
+        // console.log(attrs.shibuyaFormKicksend);
+        // event.stopPropagation();
+        // element.addClass('is-active');
+      });
+
+    }
+  };
+
+}]);
+
 jQuery(function($) {
   if (!Modernizr.svg) {
     $('img[src*=".svg"]').each(function() {
@@ -224,17 +276,22 @@ jQuery(function($) {
 
 (function() {
 
-  var app = angular.module('stargrin', []);
+  var app = angular.module('stargrin', ['shibuya.form.kicksend']);
 
   app.controller('SignupCtrl', ['$scope', function($scope) {
-    $scope.email = null;
+    $scope.email      = '';
+    $scope.processing = false;
+    $scope.attempted  = false;
+    $scope.complete   = false;
+
+    $scope.submit = function(event) {
+      event.preventDefault();
+      $scope.attempted  = true;
+    };
   }]);
 
 })();
 
+//= require lib/ng.shibuya.js
 //= require features/svg.js
 //= require app/init.js
-
-jQuery(function() {
-  // console.log("Testing...");
-});

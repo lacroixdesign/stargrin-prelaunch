@@ -32,7 +32,7 @@
     "grunt-notify": "git://github.com/iamlacroix/grunt-notify.git",
     "grunt-snockets": "git://github.com/iamlacroix/grunt-snockets.git",
     "grunt-nodemon": "0.x",
-    "grunt-mocha": "~0.x",
+    "grunt-mocha-test": "~0.x",
     "grunt-neuter": "~0.5.x",
     "grunt-contrib-concat": "~0.3.x",
     "chai": "~1.x",

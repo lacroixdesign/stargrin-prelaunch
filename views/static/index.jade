@@ -14,15 +14,19 @@ block content
 
         h3 Sign up now for exclusive information and be the first to know when we launch.
 
-        form.m-form.intro-signup(ng-controller="SignupCtrl")
-          input.intro-signup-input(type="email", name="email", placeholder="Email address", ng-model="email")
-          button.btn(type="submit") Send
-          .form-error Invalid email address. Please double-check your entry and try again.
-          .form-success Almost done! Check your inbox for instructions on confirming your email address.
-          .form-suggestion
+        form#signup-form.m-form.intro-signup(ng:controller="SignupCtrl", ng:submit="submit()", name="form", novalidate)
+          div(ng:if="!complete")
+            input.intro-signup-input(type="email", name="email", ng:model="email", required, placeholder="Email address")
+            button.btn(type="submit", ng:disabled="processing") Send
+            span {{ email }}
+          #signup-form-error.form-error(ng:if="form.email.$error && attempted")
+            div(ng:if="form.email.$error.email") Invalid email address. Please double-check your entry and try again.
+            div(ng:if="form.email.$error.required") Email address is required.
+          #signup-form-success.form-success(ng:if="complete") Almost done! Check your inbox for instructions on confirming your email address.
+          #signup-form-suggestion.form-suggestion(shibuya:form:kicksend="email")
             | Did you mean&nbsp;
             a(href="#")
-              span steve
+              span example
               | @
               strong gmail.com
               | ?

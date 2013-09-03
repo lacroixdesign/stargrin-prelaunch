@@ -2,18 +2,23 @@ test:
 	NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter spec \
 		--timeout 7000 \
-		--recursive
+		--recursive \
+		--growl
 
 unit:
 	NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter spec \
 		--timeout 7000 \
+		--recursive \
+		--growl \
 		test/unit/
 
 accept:
 	NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter spec \
 		--timeout 7000 \
+		--recursive \
+		--growl \
 		test/integration/
 
 console:

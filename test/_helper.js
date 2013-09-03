@@ -9,11 +9,6 @@ var app     = require('../server')
 var port = 3003
   , url  = 'http://localhost:' + port;
 
-// drop the DB after all tests are complete
-after(function(done) {
-  app.db.connection.db.dropDatabase(done);
-});
-
 // export
 module.exports = {
   app:  app,
@@ -27,17 +22,4 @@ module.exports = {
   browser: function() {
     return (new Browser({ site: url }));
   },
-
-  db: {
-    close: function(done) {
-      app.db.connection.close(done);
-    },
-
-    clear: function(model, done) {
-      model.remove({}, function() {
-        done();
-      });
-    }
-  }
-
 };

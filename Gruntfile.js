@@ -224,15 +224,22 @@ module.exports = function(grunt) {
     ////
     // Tests
     //
-    mocha: {
+    mochaTest: {
       options: {
         reporter: 'Spec',
         timeout: 7000,
         recursive: true,
-        run: true
+        growl: true,
+        bail: false
       },
       all: {
         src: ['test/**/*_test.js']
+      },
+      unit: {
+        src: ['test/unit/**/*_test.js']
+      },
+      acceptance: {
+        src: ['test/integration/**/*_test.js']
       }
     },
 
@@ -322,7 +329,7 @@ module.exports = function(grunt) {
         message: 'Static assets have changed'
       },
       test: {
-        message: 'Acceptance tests have finished'
+        message: 'Tests have finished'
       },
       generic_tasks: {
         message: 'All tasks have properly finished'
@@ -351,7 +358,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-nodemon');
-  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-concurrent');
 
   // Logging task
@@ -373,13 +380,13 @@ module.exports = function(grunt) {
     'copy:javascripts'
   ]);
   grunt.registerTask('static_assets', ['clean:static_assets', 'copy:static_assets']);
-  grunt.registerTask('node_jshint',   ['jshint:node', 'notify:node_jshint', 'log:jshint']);
+  grunt.registerTask('node_jshint',   ['jshint:node', 'jshint:test', 'notify:node_jshint', 'log:jshint']);
 
   // Common tasks
   grunt.registerTask('compile', ['stylesheets', 'javascripts', 'static_assets', 'notify:compile']);
   grunt.registerTask('assets',  ['stylesheets', 'javascripts', 'static_assets', 'jshint:node', 'notify:assets', 'watch']);
   grunt.registerTask('server',  ['jshint:node', 'jshint:test', 'nodemon:dev', 'notify:nodemon']);
-  grunt.registerTask('test',    ['mocha', 'notify:test']);
+  grunt.registerTask('test',    ['mochaTest:all', 'notify:test']);
   grunt.registerTask('build',   ['stylesheets', 'javascripts', 'static_assets', 'jshint:node']);
   grunt.registerTask('dev',     ['build', 'concurrent:development']);
 
