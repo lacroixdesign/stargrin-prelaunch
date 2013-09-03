@@ -61,7 +61,7 @@
     ul {
       max-width: 25em;
       padding-left: 1.5em;
-      margin: 1em auto;
+      margin: 1em auto 2em;
       font-size: 1em;
       text-align: left;
     }
@@ -73,6 +73,7 @@
   } // .intro-callout
 
   .intro-signup {
+    margin-top: 1em;
 
     .intro-signup-input {
       display: inline-block;
