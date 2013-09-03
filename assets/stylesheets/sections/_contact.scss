@@ -1,30 +1,26 @@
 .s-contact {
   margin: 1em auto;
 
-  h3 {
-    font-size: 1em;
-    font-style: italic;
-    text-align: center;
-  }
-
-  a {
+  .contact-icons {
+    @include unstyled-list;
+    margin: 0 auto;
     color: $dark-grey;
-  }
+    font-size: 2.5em;
+    text-align: center;
 
-  a:hover {
-    color: $yellow;
-  }
-
-  a:active {
-    color: darken($yellow, 5%);
-  }
-
-  @include media-ie($breakpoint-ipad) {
-
-    h3 {
-      font-size: 1.25em;
+    li {
+      display: inline-block;
+      margin: 0 0.25em;
     }
 
-  } // @include media-ie($breakpoint-ipad)
+    a:hover {
+      color: $yellow;
+    }
+
+    a:active {
+      color: darken($yellow, 5%);
+    }
+
+  } // .contact-icons
 
 } // .s-contact
