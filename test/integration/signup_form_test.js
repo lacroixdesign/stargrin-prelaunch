@@ -10,6 +10,11 @@ describe('Signup Form', function() {
     server  = helper.server();
     browser = helper.browser();
     $form   = 'form#signup-form';
+    $inputElement   = $form+' input[type="email"]';
+    $buttonElement  = $form+' button[type="submit"]';
+    $errorElement   = $form+' #signup-form-error';
+    $suggestElement = $form+' #signup-form-suggestion';
+    $successElement = $form+' #signup-form-success';
     browser.visit('/', done);
   });
 
@@ -25,26 +30,18 @@ describe('Signup Form', function() {
     });
 
     it('should have an email input', function() {
-      var input = browser.query($form+' input[name="email"][ng:model="email"]');
+      var input = browser.query($inputElement);
       expect(input).to.exist;
     });
 
     it('should have a submit button', function() {
-      var button = browser.query($form+' button');
+      var button = browser.query($buttonElement);
       expect(button).to.exist;
     });
 
   }); // content
 
   describe('validations', function() {
-
-    before(function() {
-      $inputElement   = $form+' input[name="email"]';
-      $buttonElement  = $form+' button[type="submit"]';
-      $errorElement   = $form+' #signup-form-error';
-      $suggestElement = $form+' #signup-form-suggestion';
-      $successElement = $form+' #signup-form-success';
-    });
 
     beforeEach(function(done) {
       browser.visit('/', done);

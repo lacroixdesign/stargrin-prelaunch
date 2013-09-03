@@ -1,48 +1,47 @@
+/* globals Kicksend: true */
 
 /*
- * dropdownToggle - Provides dropdown menu functionality in place of bootstrap js
- * @restrict class or attribute
+ * shibuyaMailcheck - Provides suggestions for common email typos
+ * @restrict attribute
  * @example:
-   <div class="m-btn-dropdown">
-     <a dropdown-toggle>Dropdown Menu</a>
-     <ul class="dropdown-menu">
-       <li ng-repeat="choice in dropChoices">
-         <a ng-href="{{choice.href}}">{{choice.text}}</a>
-       </li>
-     </ul>
-   </div>
+    <div shibuya:form:mailcheck="user.email">
+      Did you mean <span>example@<strong>gmail.com</strong></span>?
+    </div>
  */
 
-angular.module('shibuya.form.kicksend', []).directive('shibuyaFormKicksend', [function () {
+angular.module('shibuya.form.mailcheck', []).directive('shibuyaMailcheck', [function () {
   return {
+    scope: true,
     restrict: 'A',
-    link: function(scope, element) {
+    template: '<div>Did you mean <span>{{ address }}@<strong>{{ domain }}</strong></span>?</div>',
+    replace: true,
+    link: function(scope, element, attrs) {
 
-      // function checkEmail() {
-      //   Kicksend.mailcheck.run({
-      //     email: scope.form.email,
-      //     suggested: function(suggestion) {
-      //       scope.emailSuggestion = suggestion.full;
-      //     },
-      //     empty: function() {
-      //       scope.emailSuggestion = null;
-      //     }
-      //   });
-      // }
+      function checkEmail(email) {
+        Kicksend.mailcheck.run({
+          email: email,
+          suggested: function(suggestion) {
+            scope.suggestion = suggestion.full;
+            scope.address    = suggestion.address;
+            scope.domain     = suggestion.domain;
+            element.show();
+          },
+          empty: function() {
+            scope.suggestion = null;
+            element.hide();
+          }
+        });
+      }
 
-      scope.$watch('email', function(newVal) {
-        console.log('CHANGE:');
-        console.warn(newVal);
+      scope.$watch(attrs.shibuyaMailcheck, function(email) {
+        checkEmail(email);
       });
 
       element.bind('click', function (event) {
         event.preventDefault();
-        // console.log(scope.email);
-        console.log(scope);
-        // console.log(attrs);
-        // console.log(attrs.shibuyaFormKicksend);
-        // event.stopPropagation();
-        // element.addClass('is-active');
+        if (scope.suggestion) {
+          scope.$parent.$apply(attrs.shibuyaMailcheck+' = "'+scope.suggestion+'"');
+        }
       });
 
     }
