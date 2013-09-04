@@ -41,7 +41,7 @@
   } // .intro-logo
 
   .intro-callout {
-    max-width: 50em;
+    max-width: 60em;
     padding: 0.5em 1em;
     margin: 2em auto;
     border-radius: 4px;
@@ -59,15 +59,13 @@
     }
 
     ul {
-      max-width: 25em;
       padding-left: 1.5em;
       margin: 1em auto 2em;
       font-size: 1em;
-      text-align: left;
     }
 
     li {
-      list-style: disc;
+      list-style: none;
     }
 
   } // .intro-callout
