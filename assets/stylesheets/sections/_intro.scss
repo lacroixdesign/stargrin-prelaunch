@@ -91,19 +91,20 @@
   .intro-blog {
 
     a {
+      border-bottom: 1px solid transparent;
       color: $yellow;
     }
 
     a:hover {
-      color: lighten($yellow, 10%);
       border-bottom: 1px solid lighten($yellow, 10%);
+      color: lighten($yellow, 10%);
     }
 
     a:active {
       color: darken($yellow, 10%)
     }
 
-  }
+  } // .intro-blog
 
   @include media-ie($breakpoint-ipad) {
 
@@ -129,11 +130,7 @@
     } // .intro-callout
 
     .intro-blog {
-
-      h4 {
-        font-size: 1.5em;
-      }
-
+      font-size: 1.5em;
     }
 
   } // @include media-ie(breakpoint-ipad)
