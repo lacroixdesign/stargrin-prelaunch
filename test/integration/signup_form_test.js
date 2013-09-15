@@ -76,7 +76,10 @@ describe('Signup Form', function() {
       browser.wait(10, function() {
         expect( browser.query($suggestElement), 'email suggestion should exist' ).to.exist;
         expect( browser.text($suggestElement) ).to.include('example@gmail.com');
-        done();
+        browser.clickLink($suggestElement, function() {
+          expect( browser.html($inputElement) ).to.include('example@gmail.com');
+          done();
+        });
       });
     });
 

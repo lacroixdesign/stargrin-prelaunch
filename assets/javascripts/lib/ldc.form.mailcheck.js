@@ -1,19 +1,19 @@
 /* globals Kicksend: true */
 
 /*
- * shibuyaMailcheck - Provides suggestions for common email typos
+ * mailcheck - Provides suggestions for common email typos
  * @restrict attribute
  * @example:
-    <div shibuya:form:mailcheck="user.email">
+    <a mailcheck="user.email">
       Did you mean <span>example@<strong>gmail.com</strong></span>?
-    </div>
+    </a>
  */
 
-angular.module('shibuya.form.mailcheck', []).directive('shibuyaMailcheck', [function () {
+angular.module('ldc.form.mailcheck', []).directive('mailcheck', [function () {
   return {
     scope: true,
     restrict: 'A',
-    template: '<div>Did you mean <span>{{ address }}@<strong>{{ domain }}</strong></span>?</div>',
+    template: '<a>Did you mean <span>{{ address }}@<strong>{{ domain }}</strong></span>?</a>',
     replace: true,
     link: function(scope, element, attrs) {
 
@@ -33,14 +33,14 @@ angular.module('shibuya.form.mailcheck', []).directive('shibuyaMailcheck', [func
         });
       }
 
-      scope.$watch(attrs.shibuyaMailcheck, function(email) {
+      scope.$watch(attrs.mailcheck, function(email) {
         checkEmail(email);
       });
 
       element.bind('click', function (event) {
         event.preventDefault();
         if (scope.suggestion) {
-          scope.$parent.$apply(attrs.shibuyaMailcheck+' = "'+scope.suggestion+'"');
+          scope.$parent.$apply(attrs.mailcheck+' = "'+scope.suggestion+'"');
         }
       });
 

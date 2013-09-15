@@ -27,7 +27,7 @@ block content
             div(ng:if="form.email.$error.required") Email address is required.
             div(ng:if="responseError") {{ responseError }}
           #signup-form-success.form-success(ng:if="complete") Almost done! Check your inbox for instructions on confirming your email address.
-          #signup-form-suggestion.form-suggestion(shibuya:mailcheck="user.email")
+          #signup-form-suggestion.form-suggestion(mailcheck="user.email", ng:if="user.email")
 
       .intro-blog
         h4: a(href="http://blog.stargrin.com/") In the meantime, follow our blog &rarr;
